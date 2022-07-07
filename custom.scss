@@ -123,6 +123,11 @@ $gray-white: scale($gray, 90);
 $red: #af272f;
 $dark-red: scale($red, -30);
 
+
+html, body {
+    background: $white;
+}
+
 // header and footer
 .c_body-content.cr{
     .c_logo-long.cr {
@@ -143,35 +148,45 @@ $dark-red: scale($red, -30);
             text-decoration: underline;
           }
     }
+    .c_text-blue--light {
+        color: $light-blue;
+    }
+    .c_footer.cr {
+        padding-top: 2rem;
+    }
     .c_footer.cr,
     .c_copyright.cr {
         background: $dark-blue !important;
         border-top: 1px solid $white;
+        line-height: 1.5;
 
         p.cr {color: $white !important;}
         a.cr {
             color: $blue-white !important;
-            text-decoration: none;
+            text-decoration: none !important;
             font-weight: 400;
         }
     }
 
+    .c_content-body {
+        margin-top: 0;
+    }
 
 h1 {
     text-transform: capitalize;
     position: relative;
-    line-height: 2;
+    line-height: 1.2;
     color: $blue;
     font-family: 'DINPro';
     font-weight: 700;
-
+    margin-bottom: 3rem;
 
     &:after {
         content: '';
         border-bottom: 2px solid $red;
         width: 3rem;
         position: absolute;
-        bottom: 0;
+        bottom: -20px;
         left: 0;
     }
 }}
@@ -297,6 +312,16 @@ h1 {
         display: table;
         border-collapse: inherit;
       }
+
+      //rating scale 
+      @media screen and (min-width: 0px) {
+          div.form_container:not(.form_width_narrow) div.form_question.form_layout_table[data-type="likert"] .form_responses, div.form_container:not(.form_width_narrow) div.form_question.form_layout_table .form_responses_labels {
+            //   display: inline-block !important;
+            //   width: calc(100% - 150px) !important;
+            margin-left: 150px !important;
+            }
+        }
+
 }
 button[type="button"] {
     height: 48px;
