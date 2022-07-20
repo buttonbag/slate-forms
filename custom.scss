@@ -178,6 +178,10 @@ html, body {
     }
 
     #content {
+        font-family: "Source Sans Pro", Arial, sans-serif;
+        font-size: 18px;
+        line-height: 1.57;
+
         h1 {
             text-transform: capitalize;
             position: relative;
@@ -198,11 +202,28 @@ html, body {
         }
 
         a {text-decoration: underline;}
+
+        #form_description, 
+        #register_date,
+        #register_location {
+            font-size: 18px;
+            line-height: 1.57;
+            font-weight: 400;
+        }
+
+
+        // slate admin areas 
+        #side {
+            font-size: 14px;
+            line-height: 2;
+        }
     }
 }
 
-.form_page {
-    color: $gray;
+form, .form_page {
+    .plain {
+        font-size: 14px;
+    }
     
     .form_h1, .form_h2 {
         font-family: 'DINPro';
@@ -228,8 +249,8 @@ html, body {
     .form_label {
         font-size: 14px;
         line-height: 2;
-        font-family: 'DINPro';
         font-weight: 400;
+        color: $black;
     }
 
     // inputs
@@ -333,19 +354,25 @@ html, body {
         }
 
 }
-button[type="button"] {
+button[type="button"], 
+button[type="button"].default {
     height: 48px;
     width: 373px;
     border-radius: 6px;
-    background: $blue;
+    background-color: $blue;
     color: $white;
     text-transform: uppercase;
-    font-family: DIN Pro;
+    font-family: "DINPro" !important;
     font-size: 16px;
     font-weight: 700;
     line-height: 20px;
     letter-spacing: 0.04em;
     text-align: center;
+    margin-bottom: 20px;
+
+    &:hover {
+        background-color: $dark-blue;
+    }
 }
 
 

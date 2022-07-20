@@ -141,6 +141,11 @@ html, body {
 [class*=body-content].cr [class*=content-body] {
   margin-top: 0;
 }
+[class*=body-content].cr #content {
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.57;
+}
 [class*=body-content].cr #content h1 {
   text-transform: capitalize;
   position: relative;
@@ -161,33 +166,50 @@ html, body {
 [class*=body-content].cr #content a {
   text-decoration: underline;
 }
-
-.form_page {
-  color: #565656;
+[class*=body-content].cr #content #form_description,
+[class*=body-content].cr #content #register_date,
+[class*=body-content].cr #content #register_location {
+  font-size: 18px;
+  line-height: 1.57;
+  font-weight: 400;
 }
-.form_page .form_h1, .form_page .form_h2 {
+[class*=body-content].cr #content #side {
+  font-size: 14px;
+  line-height: 2;
+}
+
+form .plain, .form_page .plain {
+  font-size: 14px;
+}
+form .form_h1, form .form_h2, .form_page .form_h1, .form_page .form_h2 {
   font-family: "DINPro";
   font-weight: 500;
   letter-spacing: 0em;
 }
-.form_page .form_h1 .form_label {
+form .form_h1 .form_label, .form_page .form_h1 .form_label {
   color: #0057b7;
   font-size: 24px;
   line-height: 31px;
 }
-.form_page .form_h2 .form_label {
+form .form_h2 .form_label, .form_page .form_h2 .form_label {
   color: #565656;
   font-size: 20px;
   line-height: 26px;
 }
-.form_page label,
+form label,
+form .form_label, .form_page label,
 .form_page .form_label {
   font-size: 14px;
   line-height: 2;
-  font-family: "DINPro";
   font-weight: 400;
+  color: #000;
 }
-.form_page input[type=text],
+form input[type=text],
+form input[type=email],
+form input[type=tel],
+form input[type=date],
+form textarea,
+form select, .form_page input[type=text],
 .form_page input[type=email],
 .form_page input[type=tel],
 .form_page input[type=date],
@@ -202,16 +224,21 @@ html, body {
   font-size: 14px;
   background: none;
 }
-.form_page input[type=file] {
+form input[type=file], .form_page input[type=file] {
   font-size: 14px;
 }
-.form_page select:not([multiple]) {
+form select:not([multiple]), .form_page select:not([multiple]) {
   background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iNyIgdmlld0JveD0iMCAwIDEyIDciIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xMC41OSAxLjM5MzM1ZS0wOEw2IDQuMzI2NTlMMS40MSA0LjE1MjA0ZS0wN0wtMi40Nzc1N2UtMDcgMS4zMzE5OEw2IDdMMTIgMS4zMzE5OEwxMC41OSAxLjM5MzM1ZS0wOFoiIGZpbGw9IiM5OTk5OTkiLz4KPC9zdmc+Cg==") calc(100% - 5px)/10px no-repeat;
 }
-.form_page input[type=date] {
+form input[type=date], .form_page input[type=date] {
   padding: 0 15px;
 }
-.form_page .form_question.required input[type=text],
+form .form_question.required input[type=text],
+form .form_question.required input[type=email],
+form .form_question.required input[type=tel],
+form .form_question.required input[type=checkbox],
+form .form_question.required textarea,
+form .form_question.required select, .form_page .form_question.required input[type=text],
 .form_page .form_question.required input[type=email],
 .form_page .form_question.required input[type=tel],
 .form_page .form_question.required input[type=checkbox],
@@ -219,42 +246,48 @@ html, body {
 .form_page .form_question.required select {
   border: 1px solid #af272f;
 }
-.form_page .ui-datepicker-header {
+form .ui-datepicker-header, .form_page .ui-datepicker-header {
   background: #0057b7;
 }
-.form_page .ui-datepicker-title {
+form .ui-datepicker-title, .form_page .ui-datepicker-title {
   color: #fff;
 }
-.form_page .ui-datepicker-calendar .ui-datepicker-current-day .ui-state-active {
+form .ui-datepicker-calendar .ui-datepicker-current-day .ui-state-active, .form_page .ui-datepicker-calendar .ui-datepicker-current-day .ui-state-active {
   background: #0057b7;
 }
-.form_page .ui-datepicker-calendar a.ui-state-hover {
+form .ui-datepicker-calendar a.ui-state-hover, .form_page .ui-datepicker-calendar a.ui-state-hover {
   background: #deeeff;
 }
-.form_page .ui-helper-clearfix::before, .form_page .ui-helper-clearfix::after {
+form .ui-helper-clearfix::before, form .ui-helper-clearfix::after, .form_page .ui-helper-clearfix::before, .form_page .ui-helper-clearfix::after {
   content: "";
   display: table;
   border-collapse: inherit;
 }
 @media screen and (min-width: 0px) {
-  .form_page div.form_container:not(.form_width_narrow) div.form_question.form_layout_table[data-type=likert] .form_responses, .form_page div.form_container:not(.form_width_narrow) div.form_question.form_layout_table .form_responses_labels {
+  form div.form_container:not(.form_width_narrow) div.form_question.form_layout_table[data-type=likert] .form_responses, form div.form_container:not(.form_width_narrow) div.form_question.form_layout_table .form_responses_labels, .form_page div.form_container:not(.form_width_narrow) div.form_question.form_layout_table[data-type=likert] .form_responses, .form_page div.form_container:not(.form_width_narrow) div.form_question.form_layout_table .form_responses_labels {
     margin-left: 150px !important;
   }
 }
 
-button[type=button] {
+button[type=button],
+button[type=button].default {
   height: 48px;
   width: 373px;
   border-radius: 6px;
-  background: #0057b7;
+  background-color: #0057b7;
   color: #fff;
   text-transform: uppercase;
-  font-family: DIN Pro;
+  font-family: "DINPro" !important;
   font-size: 16px;
   font-weight: 700;
   line-height: 20px;
   letter-spacing: 0.04em;
   text-align: center;
+  margin-bottom: 20px;
+}
+button[type=button]:hover,
+button[type=button].default:hover {
+  background-color: #0e4174;
 }
 
 /*# sourceMappingURL=custom.css.map */
